@@ -1,6 +1,21 @@
 import React from 'react';
 import axios from 'axios';
 import {saveAs} from 'file-saver';
+import Button from '@material-ui/core/Button';
+import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+      display: 'flex',
+      flexWrap: 'wrap',
+    },
+    textField: {
+      marginLeft: theme.spacing(1),
+      marginRight: theme.spacing(1),
+      width: '25ch',
+    },
+  }));
 
 
 class App extends React.Component{
@@ -20,8 +35,9 @@ class App extends React.Component{
             saveAs(pdfBlob,'document.pdf');
         })
     }
-
+ 
     render(){
+        // const classes = useStyles();
         return(
             <div>
                 <input type="text" placeholder="Name" name="name" onChange={this.handleChange} />
@@ -29,11 +45,15 @@ class App extends React.Component{
                 <input type="text" placeholder="College" name="college" onChange={this.handleChange} />
                 <input type="text" placeholder="Board" name="board" onChange={this.handleChange} />
                 <input type="year" placeholder="year" name="year" onChange={this.handleChange} />
-                <button onClick={this.CreatePdf}>
-                    Download PDF
-                </button>
+               
+                
+     
+                
+                <Button variant="contained" color="primary" onClick={() => { this.CreatePdf() }}>
+                     Hello World
+                </Button>
             </div>
-        )
+        );
     }
 }
 
